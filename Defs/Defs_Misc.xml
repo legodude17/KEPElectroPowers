@@ -1,0 +1,26 @@
+<Defs>
+<ThingDef ParentName="MoteBase">
+    <defName>Mote_NerveAbility</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <solidTime>0.05</solidTime>
+      <fadeOutTime>0.1</fadeOutTime>
+    </mote>
+    <graphicData>
+      <texPath>Misc/NerveMote</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="MoteBase">
+    <defName>Mote_VanoAbility</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <solidTime>0.05</solidTime>
+      <fadeOutTime>0.1</fadeOutTime>
+    </mote>
+    <graphicData>
+      <texPath>Misc/VanoMote</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+  </ThingDef>
+</Defs>

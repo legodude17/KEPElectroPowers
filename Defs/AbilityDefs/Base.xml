@@ -1,0 +1,30 @@
+<Defs>
+  <AbilityDef Name="ElectroPowerBase" Abstract="True">
+    <abilityClass>ElectroPowers.Ability_Electro</abilityClass>
+    <writeCombatLog>True</writeCombatLog>
+    <category>Electro</category>
+    <statBases>
+      <Ability_Duration>0</Ability_Duration>
+      <Ability_DetectChancePerEntropy>0</Ability_DetectChancePerEntropy>
+      <Ability_EntropyGain>0</Ability_EntropyGain>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <requireLineOfSight>False</requireLineOfSight>
+      <warmupTime>0.1</warmupTime>
+      <range>50</range>
+      <targetParams>
+        <canTargetBuildings>False</canTargetBuildings>
+        <canTargetAnimals>False</canTargetAnimals>
+        <thingCategory>Item</thingCategory>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetLocations>False</canTargetLocations>
+        <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityCategoryDef>
+    <defName>Electro</defName>
+    <displayOrder>3</displayOrder>
+  </AbilityCategoryDef>
+</Defs>

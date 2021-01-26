@@ -1,0 +1,50 @@
+<Defs>
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveBreak</defName>
+    <label>Nerve-Break</label>
+    <description>Channel electro-nerve energy into an opponents shield and body, breaking the shield and slowing them down.</description>
+    <level>0</level>
+    <iconPath>Abilities/NerveBreak</iconPath>
+    <statBases>
+      <Ability_Duration>20</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>NerveBurden</hediffDef>
+        <goodwillImpact>-20</goodwillImpact>
+      </li>
+      <li>
+        <compClass>ElectroPowers.CompAbilityEffect_BreakShield</compClass>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li> 
+    </comps>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveBreak</defName>
+    <label>Nerve-Break</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveBreak</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>NerveBurden</defName>
+    <label>nerve breakdown</label>
+    <description>Breakdowns in the nerves connection the brain to the muscles, caused by a nerve-break ability. Causes slower movement.</description>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <setMax>0.4</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>
