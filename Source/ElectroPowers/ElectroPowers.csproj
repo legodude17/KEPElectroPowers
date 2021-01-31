@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -47,15 +50,28 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbilityComps.cs" />
     <Compile Include="CompAbilityEffectDrain.cs" />
     <Compile Include="Ability_Electro.cs" />
     <Compile Include="CompUseEffect_RandomHediff.cs" />
+    <Compile Include="ElectroPowersMod.cs" />
     <Compile Include="EPDefOf.cs" />
-    <Compile Include="HediffComp_Ability.cs" />
+    <Compile Include="Gizmo_LevelReadout.cs" />
+    <Compile Include="HediffComps.cs" />
+    <Compile Include="MoreHediffOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VanoExplosion.cs" />
+    <Compile Include="VanoStriker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

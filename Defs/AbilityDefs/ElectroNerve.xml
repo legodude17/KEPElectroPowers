@@ -1,7 +1,8 @@
 <Defs>
+  <!--  Shield Break  -->
   <AbilityDef ParentName="ElectroPowerBase">
     <defName>NerveBreak</defName>
-    <label>Nerve-Break</label>
+    <label>shield break</label>
     <description>Channel electro-nerve energy into an opponents shield and body, breaking the shield and slowing them down.</description>
     <level>0</level>
     <iconPath>Abilities/NerveBreak</iconPath>
@@ -14,17 +15,17 @@
         <hediffDef>NerveBurden</hediffDef>
         <goodwillImpact>-20</goodwillImpact>
       </li>
-      <li>
+      <li Class="CompProperties_AbilityEffect">
         <compClass>ElectroPowers.CompAbilityEffect_BreakShield</compClass>
       </li>
       <li Class="ElectroPowers.DrainProps">
         <instantComa>false</instantComa>
-      </li> 
+      </li>
     </comps>
   </AbilityDef>
   <HediffDef ParentName="ElectroPowersBase">
     <defName>NerveBreak</defName>
-    <label>Nerve-Break</label>
+    <label>shield break</label>
     <comps>
       <li Class="ElectroPowers.HediffCompProperties_Ability">
         <Ability>NerveBreak</Ability>
@@ -34,14 +35,258 @@
   <HediffDef ParentName = "PsycastHediffBase">
     <defName>NerveBurden</defName>
     <label>nerve breakdown</label>
-    <description>Breakdowns in the nerves connection the brain to the muscles, caused by a nerve-break ability. Causes slower movement.</description>
+    <description>Breakdowns in the nerves connection the brain to the muscles, causing slower movement.</description>
     <isBad>true</isBad>
     <stages>
       <li>
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <setMax>0.4</setMax>
+            <setMax>0.2</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+
+  <!--  Circuit Fry  -->
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveEMP</defName>
+    <label>circuit fry</label>
+    <description>Channel electro-nerve energy into an opponent or enemy building, shutting down all its electronics for a time.</description>
+    <level>0</level>
+    <iconPath>Abilities/NerveEMP</iconPath>
+    <comps>
+      <li Class="CompProperties_AbilityEffect">
+        <compClass>ElectroPowers.CompAbilityEffect_EMP</compClass>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetBuildings>True</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveEMP</defName>
+    <label>circuit fry</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveEMP</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!--  Life Transfer  -->
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveHealth</defName>
+    <label>life transfer</label>
+    <description>Channel electro-nerve energy into a friendly in order to boost their immune system.</description>
+    <level>0</level>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <iconPath>Abilities/NerveEMP</iconPath>
+    <comps>
+      <li Class = "ElectroPowers.CompProperties_ApplyHediffToSelfAndTarget">
+        <compClass>ElectroPowers.CompAbilityEffect_ApplyHeddifToSelfAndTarget</compClass>
+        <toSelf>NerveHealthMalus</toSelf>
+        <toTarget>NerveHealthBonus</toTarget>
+        <goodwillImpact>+5</goodwillImpact>
+        <selfDurationMultiplyer>3</selfDurationMultiplyer>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetBuildings>True</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveHealth</defName>
+    <label>life transfer</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveHealth</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>NerveHealthBonus</defName>
+    <label>life transfered</label>
+    <description>An influx of energy has boosted the immune system.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>NerveHealthMalus</defName>
+    <label>life transfered</label>
+    <description>An outflow of energy has left the immune system drained.</description>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>-0.2</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+
+  <!--  Shield Make  -->
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveShield</defName>
+    <label>shield make</label>
+    <description>Channel electro-nerve energy into an opponent or enemy building, shutting down all its electronics for a time.</description>
+    <level>0</level>
+    <iconPath>Abilities/NerveShield</iconPath>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>NerveShielded</hediffDef>
+        <goodwillImpact>+30</goodwillImpact>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveShield</defName>
+    <label>Nerve-Shield</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveShield</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef>
+    <defName>NerveShielded</defName>
+    <label>shield make</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>An a large amount of nerve-energy has been concentrated into a shield.</description>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Shield">
+        <canRecharge>false</canRecharge>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+  </HediffDef>
+
+
+  <!--  Agility transfer  -->
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveSpeed</defName>
+    <label>agility transfer</label>
+    <description>Channel electro-nerve energy into an ally's movement nerves and muslces to increase movement speed.</description>
+    <level>0</level>
+    <iconPath>Abilities/NerveSpeed</iconPath>
+    <statBases>
+      <Ability_Duration>100</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>NerveQuickened</hediffDef>
+        <goodwillImpact>+5</goodwillImpact>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveSpeed</defName>
+    <label>agility transfer</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveSpeed</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>NerveQuickened</defName>
+    <label>agility transfered</label>
+    <description>An influx of energy has boosted the nerves and muslces associated with movement.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+
+  <!--  Brain Tamper  -->
+  <AbilityDef ParentName="ElectroPowerBase">
+    <defName>NerveSquish</defName>
+    <label>brain tamper</label>
+    <description>Channel electro-nerve energy into an ally's movement nerves and muslces to increase movement speed.</description>
+    <level>0</level>
+    <iconPath>Abilities/NerveSquish</iconPath>
+    <statBases>
+      <Ability_Duration>100</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>NerveSquashed</hediffDef>
+        <goodwillImpact>-5</goodwillImpact>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>NerveSquish</defName>
+    <label>Nerve-Squish</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>NerveSquish</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>NerveSquashed</defName>
+    <label>brain tampened</label>
+    <description>An overflow of energy directly in the brain has fried it for a time.</description>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.2</offset>
           </li>
         </capMods>
       </li>

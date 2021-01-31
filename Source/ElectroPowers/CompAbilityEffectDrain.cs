@@ -9,10 +9,8 @@ namespace ElectroPowers
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            Log.Message("target: " + target);
             base.Apply(target, dest);
             var health = parent.pawn.health;
-            Log.Message("health: " + health);
             var hediff = health.hediffSet.GetFirstHediffOfDef(EPDefOf.ElectroDrain);
             if (hediff == null)
             {
@@ -26,16 +24,11 @@ namespace ElectroPowers
                 else hediff.Severity += 1;
             }
         }
-
-        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            Log.Message("target: " + target);
-            return base.CanApplyOn(target, dest);
-        }
     }
 
-    public class DrainProps : AbilityCompProperties
+    public class DrainProps : CompProperties_AbilityEffect
     {
+        // ReSharper disable once InconsistentNaming
         public bool instantComa = false;
 
         public DrainProps()

@@ -2,3 +2,4 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ElectroPowers\Assemb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ElectroPowers\Source\ElectroPowers\obj\Debug\ElectroPowers.csprojAssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ElectroPowers\Source\ElectroPowers\obj\Debug\ElectroPowers.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ElectroPowers\Source\ElectroPowers\obj\Debug\ElectroPowers.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ElectroPowers\Source\ElectroPowers\obj\Debug\ElectroPowers.csproj.CopyComplete

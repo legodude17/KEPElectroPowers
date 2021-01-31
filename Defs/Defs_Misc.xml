@@ -1,10 +1,11 @@
 <Defs>
-<ThingDef ParentName="MoteBase">
+  <ThingDef ParentName="MoteBase">
     <defName>Mote_NerveAbility</defName>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <mote>
-      <solidTime>0.05</solidTime>
-      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>0.1</solidTime>
+      <fadeOutTime>3</fadeOutTime>
+      <growthRate>1</growthRate>
     </mote>
     <graphicData>
       <texPath>Misc/NerveMote</texPath>
@@ -15,12 +16,37 @@
     <defName>Mote_VanoAbility</defName>
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <mote>
-      <solidTime>0.05</solidTime>
-      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>0.1</solidTime>
+      <fadeOutTime>3</fadeOutTime>
+      <growthRate>1</growthRate>
     </mote>
     <graphicData>
       <texPath>Misc/VanoMote</texPath>
       <shaderType>MoteGlow</shaderType>
     </graphicData>
+  </ThingDef>
+  <ThingDef>
+    <defName>VanoBoomer</defName>
+    <label>Vano Explosion</label>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <thingClass>ElectroPowers.VanoExplosion</thingClass>
+    <graphicData>
+      <texPath>Misc/VanoMote</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+  <ThingDef>
+    <defName>VanoStrike</defName>
+    <label>Vano Strike</label>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <thingClass>ElectroPowers.VanoStriker</thingClass>
+    <graphicData>
+      <texPath>Misc/VanoMote</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
   </ThingDef>
 </Defs>

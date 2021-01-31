@@ -1,0 +1,95 @@
+<Defs>
+  <!--  Manic Implosion  -->
+  <AbilityDef ParentName="VanoPowerBase">
+    <defName>ElectroImplosion</defName>
+    <label>manic implosion</label>
+    <description>Channel enormous amounts of energy into an explosion.</description>
+    <level>0</level>
+    <iconPath>Abilities/ElectroImplosion</iconPath>
+    <statBases>
+      <Ability_Duration>20</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class = "ElectroPowers.CompProperties_Explosions">
+        <explosions>
+          <li>
+            <radius>2.5</radius>
+            <type>EMP</type>
+            <damage>1</damage>
+          </li>
+          <li>
+            <radius>2.5</radius>
+            <type>Flame</type>
+            <damage>20</damage>
+          </li>
+        </explosions>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>false</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetBuildings>True</canTargetBuildings>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>ElectroImplosion</defName>
+    <label>manic implosion</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>ElectroImplosion</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!--  Cloud Maker  -->
+  <AbilityDef ParentName="VanoPowerBase">
+    <defName>VanoRain</defName>
+    <label>cloud maker</label>
+    <description>Channel energy into changing the weather to rain.</description>
+    <level>0</level>
+    <iconPath>Abilities/VanoRain</iconPath>
+    <statBases>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <comps>
+      <li Class = "ElectroPowers.CompProperties_GameCondition">
+        <condition>VanoRain</condition>
+      </li>
+      <li Class="ElectroPowers.DrainProps">
+        <instantComa>true</instantComa>
+      </li>
+    </comps>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <targetParams>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <HediffDef ParentName="ElectroPowersBase">
+    <defName>VanoRain</defName>
+    <label>cloud maker</label>
+    <comps>
+      <li Class="ElectroPowers.HediffCompProperties_Ability">
+        <Ability>VanoRain</Ability>
+      </li>
+    </comps>
+  </HediffDef>
+  <GameConditionDef>
+    <defName>VanoRain</defName>
+    <conditionClass>ElectroPowers.GameCondition_VanoRain</conditionClass>
+    <label>rain</label>
+    <description>A massive amount of energy has been relseased into the atmosphere, causing rain.</description>
+    <endMessage>The rain is over.</endMessage>
+    <letterText>A massive amount of energy has been relseased into the atmosphere, causing rain.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+    <preventRain>false</preventRain>
+    <canBePermanent>true</canBePermanent>
+  </GameConditionDef>
+</Defs>

@@ -22,9 +22,22 @@
         <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
       </targetParams>
     </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityMoteOnTarget">
+        <moteDef>Mote_NerveAbility</moteDef>
+      </li>
+    </comps>
   </AbilityDef>
   <AbilityCategoryDef>
     <defName>Electro</defName>
     <displayOrder>3</displayOrder>
+  </AbilityCategoryDef>
+  <AbilityDef Name="VanoPowerBase" Abstract="True" ParentName="ElectroPowerBase">
+    <category>Electro</category>
+    <comps Inherit="False" />
+  </AbilityDef>
+  <AbilityCategoryDef>
+    <defName>Vano</defName>
+    <displayOrder>4</displayOrder>
   </AbilityCategoryDef>
 </Defs>
